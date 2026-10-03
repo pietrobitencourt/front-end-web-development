@@ -55,7 +55,6 @@ O objetivo é documentar minha evolução, desde HTML e CSS puros até o uso de 
 | **Instituição** | Centro Universitário do Distrito Federal (UDF), Brasília - DF |
 | **Curso** | Ciência da Computação |
 | **Disciplina** | Desenvolvimento Front-End para Web |
-| **Professor** | Eliel Silva da Cruz |
 
 ### Atividades
 
@@ -179,7 +178,6 @@ The goal is to document my progress, from plain HTML and CSS to libraries and ne
 | **Institution** | Centro Universitário do Distrito Federal (UDF), Brasília, Brazil |
 | **Program** | Computer Science |
 | **Course** | Front-End Web Development |
-| **Instructor** | Eliel Silva da Cruz |
 
 ### Projects
 
