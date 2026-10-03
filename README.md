@@ -55,6 +55,7 @@ O objetivo é documentar minha evolução, desde HTML e CSS puros até o uso de 
 | **Instituição** | Centro Universitário do Distrito Federal (UDF), Brasília - DF |
 | **Curso** | Ciência da Computação |
 | **Disciplina** | Desenvolvimento Front-End para Web |
+| **Professor** | Eliel Silva da Cruz |
 
 ### Atividades
 
@@ -140,7 +141,8 @@ Não é necessário instalar nada: as dependências da atividade 03 já estão i
 ### Observações
 
 - Os formulários de contato das atividades 01 e 02 são apenas visuais: não há backend, então nenhuma mensagem é enviada.
-- As imagens são usadas somente para fins educacionais. Os créditos estão no README de cada atividade.
+- **Imagens:** as da atividade 01 vêm do [Pixabay](https://pixabay.com/); as das atividades 02 e 03 foram encontradas no Pinterest e pertencem aos seus respectivos autores. Todas são usadas somente para fins educacionais. Se você é o autor de alguma imagem e deseja crédito ou remoção, abra uma issue neste repositório.
+- A licença MIT cobre apenas o código. As imagens não estão sob essa licença.
 
 ### Créditos e licenças de terceiros
 
@@ -177,6 +179,7 @@ The goal is to document my progress, from plain HTML and CSS to libraries and ne
 | **Institution** | Centro Universitário do Distrito Federal (UDF), Brasília, Brazil |
 | **Program** | Computer Science |
 | **Course** | Front-End Web Development |
+| **Instructor** | Eliel Silva da Cruz |
 
 ### Projects
 
@@ -226,7 +229,8 @@ Nothing needs to be installed: project 03 already ships with its Bootstrap and F
 ### Notes
 
 - The contact forms in projects 01 and 02 are visual only: there is no backend, so no message is actually sent.
-- Images are used for educational purposes only. Credits are listed in each project's README.
+- **Images:** those in project 01 come from [Pixabay](https://pixabay.com/); those in projects 02 and 03 were found on Pinterest and belong to their respective authors. All are used for educational purposes only. If you are the author of an image and would like credit or removal, please open an issue in this repository.
+- The MIT license covers the code only. The images are not under that license.
 
 ### Third-party credits and licenses
 
