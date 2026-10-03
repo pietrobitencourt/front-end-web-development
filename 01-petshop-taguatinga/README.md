@@ -11,7 +11,7 @@ Site institucional de uma página só | Single-page business website
 
 ![Prévia do site PetShop Taguatinga](docs/screenshots/capa.png)
 
-**[Ver demo / Live demo](https://SEU-USUARIO.github.io/front-end-web-development/01-petshop-taguatinga/)** · **[Voltar ao repositório / Back to repository](../README.md)**
+**[Ver demo / Live demo](https://pietrobitencourt.github.io/front-end-web-development/01-petshop-taguatinga/)** · **[Voltar ao repositório / Back to repository](../README.md)**
 
 </div>
 
@@ -88,7 +88,7 @@ Baixe ou clone o repositório, entre na pasta `01-petshop-taguatinga` e abra o `
 
 ### Créditos
 
-As fotos são usadas somente para fins educacionais. Fonte das imagens: _(preencher)_.
+Imagens obtidas no [Pixabay](https://pixabay.com/) e usadas conforme a [Licença de Conteúdo do Pixabay](https://pixabay.com/service/license-summary/), somente para fins educacionais.
 
 ---
 
@@ -139,4 +139,4 @@ Download or clone the repository, enter the `01-petshop-taguatinga` folder and o
 
 ### Credits
 
-Photos are used for educational purposes only. Image source: _(fill in)_.
+Images from [Pixabay](https://pixabay.com/), used under the [Pixabay Content License](https://pixabay.com/service/license-summary/) and for educational purposes only.
