@@ -61,9 +61,9 @@ O objetivo é documentar minha evolução, desde HTML e CSS puros até o uso de 
 
 | # | Projeto | Descrição | Tecnologias | Demo | Código |
 |---|---------|-----------|-------------|------|--------|
-| 01 | **PetShop Taguatinga** | Site institucional de uma página só: header fixo com navegação por âncoras, seção hero, galeria de fotos com efeito hover, mapa do Google incorporado e formulário de contato. | HTML5, CSS3 (Flexbox) | [Ver demo](https://SEU-USUARIO.github.io/front-end-web-development/01-petshop-taguatinga/) | [Abrir pasta](./01-petshop-taguatinga) |
-| 02 | **Picos do Brasil** | Prática Avaliativa 1. Site sobre os 7 picos mais altos do Brasil, com novo item de menu e nova seção "Top 7" (altitude, localização e curiosidades de cada pico), galeria de fotos, mapa incorporado e novo tema de cores. | HTML5, CSS3 (Flexbox) | [Ver demo](https://SEU-USUARIO.github.io/front-end-web-development/02-picos-do-brasil/) | [Abrir pasta](./02-picos-do-brasil) |
-| 03 | **Recanto News** | Atividade em sala de introdução ao Bootstrap. Portal de notícias com tema de ciência: navbar responsiva com dropdown, carrossel, cards, accordion e layout em grid. | HTML5, Bootstrap 5, Font Awesome | [Ver demo](https://SEU-USUARIO.github.io/front-end-web-development/03-recanto-news/) | [Abrir pasta](./03-recanto-news) |
+| 01 | **PetShop Taguatinga** | Site institucional de uma página só: header fixo com navegação por âncoras, seção hero, galeria de fotos com efeito hover, mapa do Google incorporado e formulário de contato. | HTML5, CSS3 (Flexbox) | [Ver demo](https://pietrobitencourt.github.io/front-end-web-development/01-petshop-taguatinga/) | [Abrir pasta](./01-petshop-taguatinga) |
+| 02 | **Picos do Brasil** | Prática Avaliativa 1. Site sobre os 7 picos mais altos do Brasil, com novo item de menu e nova seção "Top 7" (altitude, localização e curiosidades de cada pico), galeria de fotos, mapa incorporado e novo tema de cores. | HTML5, CSS3 (Flexbox) | [Ver demo](https://pietrobitencourt.github.io/front-end-web-development/02-picos-do-brasil/) | [Abrir pasta](./02-picos-do-brasil) |
+| 03 | **Recanto News** | Atividade em sala de introdução ao Bootstrap. Portal de notícias com tema de ciência: navbar responsiva com dropdown, carrossel, cards, accordion e layout em grid. | HTML5, Bootstrap 5, Font Awesome | [Ver demo](https://pietrobitencourt.github.io/front-end-web-development/03-recanto-news/) | [Abrir pasta](./03-recanto-news) |
 
 ### O que cada atividade pratica
 
@@ -153,8 +153,8 @@ Não é necessário instalar nada: as dependências da atividade 03 já estão i
 
 **Piêtro Bitencourt Nunes**, estudante de Ciência da Computação no Centro Universitário do Distrito Federal (UDF), Brasília - DF.
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/SEU-USUARIO)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/SEU-PERFIL)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/pietrobitencourt)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/piiettrosz)
 
 ### Licença
 
@@ -185,9 +185,9 @@ The goal is to document my progress, from plain HTML and CSS to libraries and ne
 
 | # | Project | Description | Tech | Demo | Code |
 |---|---------|-------------|------|------|------|
-| 01 | **PetShop Taguatinga** | Single-page business website: fixed header with anchor navigation, hero section, photo gallery with hover effects, embedded Google Map and a contact form. | HTML5, CSS3 (Flexbox) | [Live demo](https://SEU-USUARIO.github.io/front-end-web-development/01-petshop-taguatinga/) | [Open folder](./01-petshop-taguatinga) |
-| 02 | **Picos do Brasil** | Graded assignment 1. Website about Brazil's 7 highest peaks, with a new menu item and a new "Top 7" section (altitude, location and facts for each peak), photo gallery, embedded map and a new color theme. | HTML5, CSS3 (Flexbox) | [Live demo](https://SEU-USUARIO.github.io/front-end-web-development/02-picos-do-brasil/) | [Open folder](./02-picos-do-brasil) |
-| 03 | **Recanto News** | In-class introduction to Bootstrap. Science-themed news portal: responsive navbar with dropdown, carousel, cards, accordion and a grid layout. | HTML5, Bootstrap 5, Font Awesome | [Live demo](https://SEU-USUARIO.github.io/front-end-web-development/03-recanto-news/) | [Open folder](./03-recanto-news) |
+| 01 | **PetShop Taguatinga** | Single-page business website: fixed header with anchor navigation, hero section, photo gallery with hover effects, embedded Google Map and a contact form. | HTML5, CSS3 (Flexbox) | [Live demo](https://pietrobitencourt.github.io/front-end-web-development/01-petshop-taguatinga/) | [Open folder](./01-petshop-taguatinga) |
+| 02 | **Picos do Brasil** | Graded assignment 1. Website about Brazil's 7 highest peaks, with a new menu item and a new "Top 7" section (altitude, location and facts for each peak), photo gallery, embedded map and a new color theme. | HTML5, CSS3 (Flexbox) | [Live demo](https://pietrobitencourt.github.io/front-end-web-development/02-picos-do-brasil/) | [Open folder](./02-picos-do-brasil) |
+| 03 | **Recanto News** | In-class introduction to Bootstrap. Science-themed news portal: responsive navbar with dropdown, carousel, cards, accordion and a grid layout. | HTML5, Bootstrap 5, Font Awesome | [Live demo](https://pietrobitencourt.github.io/front-end-web-development/03-recanto-news/) | [Open folder](./03-recanto-news) |
 
 ### What each project practices
 
@@ -241,8 +241,8 @@ Nothing needs to be installed: project 03 already ships with its Bootstrap and F
 
 **Piêtro Bitencourt Nunes**, Computer Science student at Centro Universitário do Distrito Federal (UDF), Brasília, Brazil.
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/SEU-USUARIO)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/SEU-PERFIL)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/pietrobitencourt)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/piiettrosz)
 
 ### License
 
