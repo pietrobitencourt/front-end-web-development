@@ -21,9 +21,9 @@ Descomente os badges abaixo conforme as tecnologias forem sendo usadas:
 -->
 
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Last commit](https://img.shields.io/github/last-commit/SEU-USUARIO/front-end-web-development)
-![Repo size](https://img.shields.io/github/repo-size/SEU-USUARIO/front-end-web-development)
-![Top language](https://img.shields.io/github/languages/top/SEU-USUARIO/front-end-web-development)
+![Last commit](https://img.shields.io/github/last-commit/pietrobitencourt/front-end-web-development)
+![Repo size](https://img.shields.io/github/repo-size/pietrobitencourt/front-end-web-development)
+![Top language](https://img.shields.io/github/languages/top/pietrobitencourt/front-end-web-development)
 ![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-222?logo=github)
 
 [Português (BR)](#pt-br) · [English](#en)
