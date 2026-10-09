@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site em homenagem ao Dia Mundial dos Animais, celebrado em 4 de outubro.">
+    <title>Dia Mundial dos Animais</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="fontawesome-free-7.3.1-web/css/all.min.css" type="text/css">
+    <style>
+        :root {
+            --verde: #2F6B4F;
+            --verde-escuro: #1F3D2F;
+            --verde-claro: #E4EFE7;
+            --terra: #B8693D;
+            --areia: #F6EEDF;
+            --creme: #FBF6EC;
+            --papel: #FFFDF8;
+            --borda: #E6D9C3;
+            --texto: #3A3128;
+        }
+        body { background-color: var(--creme); color: var(--texto); }
+        h2 { color: var(--verde-escuro); }
+        section[id] { scroll-margin-top: 80px; }
+        .titulo-secao { color: var(--verde-escuro); border-left: 5px solid var(--terra); padding-left: 0.75rem; }
+        .navbar-natureza { background-color: var(--verde-escuro); border-bottom: 3px solid var(--terra); }
+        .navbar-natureza .navbar-brand i { color: #E9B88F; }
+        .navbar-natureza .nav-link.active { color: #fff; }
+        .btn-success {
+            --bs-btn-bg: var(--verde);
+            --bs-btn-border-color: var(--verde);
+            --bs-btn-hover-bg: #245640;
+            --bs-btn-hover-border-color: #245640;
+            --bs-btn-active-bg: #1B4533;
+            --bs-btn-active-border-color: #1B4533;
+        }
+        .btn-outline-success {
+            --bs-btn-color: #BFE0CB;
+            --bs-btn-border-color: #6FA886;
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: var(--verde);
+            --bs-btn-hover-border-color: var(--verde);
+            --bs-btn-active-bg: var(--verde);
+            --bs-btn-active-border-color: var(--verde);
+        }
+        .alert-natureza {
+            background-color: var(--areia);
+            border: 1px solid var(--borda);
+            border-left: 5px solid var(--terra);
+            color: #5A3D1F;
+        }
+        .alert-natureza i { color: var(--terra); }
+        .carousel-item img { height: 420px; object-fit: cover; }
+        .carousel-caption {
+            background-color: rgba(31, 61, 47, 0.7);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            bottom: 2.5rem;
+        }
+        .card { background-color: var(--papel); border-color: var(--borda); }
+        .card-img-top { height: 200px; object-fit: cover; }
+        .card-title { color: var(--verde-escuro); }
+        .badge-terra { background-color: var(--terra); color: #fff; }
+        .list-group-item { background-color: var(--papel); border-color: var(--borda); color: var(--texto); }
+        .list-group-item.item-destaque { background-color: var(--verde); border-color: var(--verde); color: #fff; }
+        .icone-lista { color: var(--terra); }
+        .accordion {
+            --bs-accordion-bg: var(--papel);
+            --bs-accordion-border-color: var(--borda);
+            --bs-accordion-btn-bg: var(--papel);
+            --bs-accordion-active-bg: var(--verde-claro);
+            --bs-accordion-active-color: var(--verde-escuro);
+            --bs-accordion-btn-focus-border-color: var(--verde);
+            --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(47, 107, 79, 0.25);
+        }
+        .modal-content, .toast { background-color: var(--creme); border-color: var(--borda); }
+        .modal-header, .modal-footer { border-color: var(--borda); }
+        .modal-title { color: var(--verde-escuro); }
+        .toast-header { background-color: var(--verde-claro); border-color: var(--borda); color: var(--verde-escuro); }
+        .icone-toast { color: var(--terra); }
+        .rodape {
+            background-color: var(--verde-escuro);
+            border-top: 3px solid var(--terra);
+            color: #CFE0D5;
+        }
+        @media (max-width: 576px) {
+            .carousel-item img { height: 240px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-natureza sticky-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-shield-dog"></i> Animais</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mamiferos">Mamíferos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#aves">Aves</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#repteisAnfibios">Répteis e Anfíbios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marinhos">Animais Marinhos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pets">Pets e Cuidados</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Notícias</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Locais</a></li>
+                            <li><a class="dropdown-item" href="#">Nacionais</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Internacionais</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar"/>
+                    <button class="btn btn-outline-success" type="submit" aria-label="Buscar"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+<main class="container">
+    <div class="alert alert-natureza alert-dismissible fade show mt-4" role="alert">
+        <i class="fa-solid fa-paw me-1"></i>
+        <strong>4 de outubro é o Dia Mundial dos Animais!</strong> Que tal celebrar adotando, cuidando e protegendo?
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner rounded shadow">
+            <div class="carousel-item active">
+                <img src="img/1.jpe" class="d-block w-100" alt="Cachorro bernese sentado em frente a montanhas nevadas">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Dia Mundial dos Animais</h5>
+                    <p class="mb-0">Uma data para lembrar que todos os seres vivos merecem respeito.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/2.jpe" class="d-block w-100" alt="Golden retriever correndo em um campo de flores">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Pets e tutores</h5>
+                    <p class="mb-0">Amor, cuidado e responsabilidade por toda a vida.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/3.jpe" class="d-block w-100" alt="Cauda de baleia saindo da água em frente a uma montanha nevada">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Fauna silvestre</h5>
+                    <p class="mb-0">Proteger os animais é proteger a natureza.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+
+    <div class="row my-4 g-4">
+        <div class="col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <img src="img/4.jpe" class="card-img-top" alt="Gansos brancos nadando em um lago">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Por que 4 de outubro?</h5>
+                    <p class="card-text">A data homenageia São Francisco de Assis, conhecido por seu amor pelos animais. Desde 1931, o dia é lembrado no mundo todo para conscientizar sobre o respeito e a proteção de todas as espécies.</p>
+                    <button type="button" class="btn btn-success mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#modalOrigem">Saiba mais</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <img src="img/2.jpe" class="card-img-top" alt="Golden retriever feliz correndo em um campo florido">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Adote, não compre</h5>
+                    <p class="card-text">Milhares de cães e gatos esperam por um lar em abrigos e ONGs. Adotar é um ato de amor que salva vidas, mas exige responsabilidade: cuidados com saúde, alimentação, carinho e compromisso para toda a vida do animal.</p>
+                    <button type="button" class="btn btn-success mt-auto align-self-start" id="btnAdotar">Quero adotar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 shadow-sm">
+                <img src="img/6.jpe" class="card-img-top" alt="Capivara com uma ave pousada na cabeça ao pôr do sol">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Proteja a fauna silvestre</h5>
+                    <p class="card-text">Desmatamento, queimadas e tráfico de animais ameaçam milhares de espécies. Preservar habitats, não comprar animais silvestres e denunciar maus-tratos são atitudes que fazem a diferença.</p>
+                    <a href="https://www.gov.br/ibama" target="_blank" rel="noopener" class="btn btn-success mt-auto align-self-start">Como ajudar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4 g-4">
+        <div class="col-lg-7">
+            <h2 id="pets">Dia dos <span class="badge badge-terra">Animais</span></h2>
+
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item item-destaque" aria-current="true"><i class="fa-solid fa-calendar-day me-2"></i>4 de outubro: Dia Mundial dos Animais</li>
+                <li class="list-group-item"><i class="fa-solid fa-house-chimney icone-lista me-2"></i>Adote em vez de comprar e dê um lar a quem precisa</li>
+                <li class="list-group-item"><i class="fa-solid fa-syringe icone-lista me-2"></i>Vacine, vermifugue e castre seu pet</li>
+                <li class="list-group-item"><i class="fa-solid fa-feather icone-lista me-2"></i>Nunca compre nem mantenha animais silvestres como pets</li>
+                <li class="list-group-item"><i class="fa-solid fa-bullhorn icone-lista me-2"></i>Denuncie maus-tratos aos órgãos de proteção animal</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="accordion shadow-sm" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Como surgiu a data?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Uma homenagem a São Francisco de Assis.</strong> A data foi escolhida por ser o dia do santo protetor dos animais e foi adotada em 1931, em um congresso de ecologistas na Itália, para chamar atenção para as espécies ameaçadas.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            O que é posse responsável?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Cuidar do animal por toda a vida.</strong> Inclui alimentação adequada, vacinas, consultas ao veterinário, castração, identificação com plaquinha ou microchip, passeios e muito carinho. Abandonar um animal é crime.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Encontrei um animal silvestre. E agora?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Não leve para casa.</strong> Evite alimentar ou manusear o animal e procure o órgão ambiental da sua região, o Ibama ou o Corpo de Bombeiros, que sabem como resgatá-lo com segurança.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="mamiferos" class="my-5">
+        <h2 class="titulo-secao mb-3">Mamíferos</h2>
+        <div id="carouselMamiferos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselMamiferos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselMamiferos" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselMamiferos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                    <img src="img/5.jpe" class="d-block w-100" alt="Vaca com guirlanda de flores ao lado de uma bandeira, nos Alpes">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/6.jpe" class="d-block w-100" alt="Capivara com uma ave pousada na cabeça ao pôr do sol">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/8.jpe" class="d-block w-100" alt="Urso-pardo de costas observando uma montanha ao amanhecer">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMamiferos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMamiferos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="aves" class="my-5">
+        <h2 class="titulo-secao mb-3">Aves</h2>
+        <div class="carousel slide">
+            <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                    <img src="img/4.jpe" class="d-block w-100" alt="Gansos brancos nadando em um lago">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="repteisAnfibios" class="my-5">
+        <h2 class="titulo-secao mb-3">Répteis e Anfíbios</h2>
+        <div id="carouselRepteis" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselRepteis" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselRepteis" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                    <img src="img/9.jpe" class="d-block w-100" alt="Iguana verde descansando em um tronco">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/10.jpe" class="d-block w-100" alt="Rã verde com manchas escuras à beira da água">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRepteis" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselRepteis" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="marinhos" class="my-5">
+        <h2 class="titulo-secao mb-3">Animais Marinhos</h2>
+        <div class="carousel slide">
+            <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                    <img src="img/3.jpe" class="d-block w-100" alt="Cauda de baleia saindo da água do mar">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="modal fade" id="modalOrigem" tabindex="-1" aria-labelledby="modalOrigemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalOrigemLabel">A origem do Dia Mundial dos Animais</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <p>O Dia Mundial dos Animais é celebrado em <strong>4 de outubro</strong>, dia de São Francisco de Assis, santo conhecido pelo cuidado com os animais e a natureza.</p>
+                <p>A data foi oficializada em 1931, durante um congresso de ecologistas em Florença, na Itália, com o objetivo de chamar atenção para as espécies ameaçadas de extinção e para o bem-estar animal.</p>
+                <p class="mb-0">Hoje, o dia reúne campanhas de adoção, vacinação, conscientização contra maus-tratos e proteção da fauna.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastAdocao" class="toast" role="status" aria-live="polite" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fa-solid fa-heart icone-toast me-2"></i>
+            <strong class="me-auto">Adoção responsável</strong>
+            <small>agora</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+        </div>
+        <div class="toast-body">
+            Procure um abrigo ou ONG da sua cidade e conheça os animais que esperam por um lar. Adotar é compromisso para toda a vida!
+        </div>
+    </div>
+</div>
+
+<footer class="rodape text-center py-3 mt-4">
+    <small>Dia Mundial dos Animais &middot; 4 de outubro &middot; Trate os animais com respeito.</small>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script>
+    document.getElementById('btnAdotar').addEventListener('click', function () {
+        bootstrap.Toast.getOrCreateInstance(document.getElementById('toastAdocao'), { delay: 6000 }).show();
+    });
+</script>
+</body>
+</html>
