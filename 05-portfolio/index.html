@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PORTFÓLIO — Piêtro Bitencourt Nunes
+  Projeto Final · Desenvolvimento Front-End para Web
+  ============================================================
+  Classes sem estilo do Bootstrap (inicio-links, lista-chips, lista-formacao,
+  lista-certificados, lista-contatos, filtros, btn-filtro...) são "ganchos"
+  para o css/style.css. Os ids são ganchos para o js/main.js.
+-->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Cor da barra do navegador no celular (mesmo azul-marinho do site). -->
+  <meta name="theme-color" content="#0F1B33">
+  <title>Piêtro Bitencourt Nunes — Portfólio</title>
+  <meta name="description" content="Portfólio de Piêtro Bitencourt Nunes, estudante de Ciência da Computação na UDF com foco em desenvolvimento full stack.">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Fontes: só os pesos que o site usa (carrega mais rápido). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Public+Sans:wght@400..600&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <a class="visually-hidden-focusable" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ CABEÇALHO / MENU ============ -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand" href="#inicio">Piêtro Bitencourt Nunes</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+          aria-controls="menu" aria-expanded="false" aria-label="Abrir ou fechar o menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre mim</a></li>
+            <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main id="conteudo">
+
+    <!-- ---------- INÍCIO ---------- -->
+    <section id="inicio">
+      <div class="container">
+        <h1>Piêtro Bitencourt Nunes</h1>
+        <p class="inicio-texto">Estudante de Ciência da Computação na UDF, em Brasília. Estudo desenvolvimento full stack e busco estágio em desenvolvimento de software.</p>
+
+        <div class="inicio-links">
+          <a href="#projetos">Ver projetos</a>
+          <a href="https://github.com/pietrobitencourt" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/piiettrosz/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:pietronbitencourt@gmail.com">E-mail</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- SOBRE MIM ---------- -->
+    <section id="sobre">
+      <div class="container">
+        <h2>Sobre mim</h2>
+
+        <div class="row align-items-center g-4">
+          <div class="col-md-4">
+            <img src="img/perfil.jpg" alt="Foto de Piêtro Bitencourt Nunes" class="img-fluid" width="420" height="420">
+          </div>
+          <div class="col-md-8">
+            <p>Estudo Ciência da Computação na UDF, em Brasília. Comecei com Python e C e hoje também faço sites com HTML, CSS, JavaScript e Bootstrap e modelo bancos de dados em MySQL.</p>
+            <p>Um exemplo do que já construí é o Steam Price Tracker: um script em Python que consulta a API da Steam, guarda o histórico de preços em JSON e avisa pelo Telegram quando um jogo muda de preço. Ele roda agendado no GitHub Actions, sem eu precisar fazer nada.</p>
+            <p>Meu foco é o desenvolvimento full stack. No momento estudo Java, Node.js, React, Angular e MongoDB, e busco um estágio onde eu possa aprender com um time e colocar tudo isso em prática.</p>
+
+            <h3>Áreas de interesse</h3>
+            <ul class="lista-chips">
+              <li>Desenvolvimento full stack</li>
+              <li>Clean Code</li>
+              <li>Arquitetura limpa</li>
+              <li>Arquitetura de software</li>
+              <li>Engenharia de software</li>
+              <li>Inteligência artificial</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- HABILIDADES ---------- -->
+    <section id="habilidades">
+      <div class="container">
+        <h2>Habilidades</h2>
+
+        <!-- Um único row com todos os blocos: no desktop ficam dois por linha. -->
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h3>Linguagens</h3>
+            <ul class="lista-chips">
+              <li>Python</li>
+              <li>C</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Front-end</h3>
+            <ul class="lista-chips">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Bancos de dados</h3>
+            <ul class="lista-chips">
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>Modelagem de dados (MER e DER)</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Ferramentas e práticas</h3>
+            <ul class="lista-chips">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>GitHub Actions (CI/CD)</li>
+              <li>Integração com APIs</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Em aprendizado</h3>
+            <ul class="lista-chips">
+              <li>Java</li>
+              <li>Node.js</li>
+              <li>React</li>
+              <li>Angular</li>
+              <li>TailwindCSS</li>
+              <li>MongoDB</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Próximos passos</h3>
+            <ul class="lista-chips">
+              <li>C++</li>
+              <li>C#</li>
+              <li>Infraestrutura</li>
+              <li>Segurança da informação</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- PROJETOS ---------- -->
+    <section id="projetos">
+      <div class="container">
+        <h2>Projetos</h2>
+
+        <!-- aria-pressed informa a leitores de tela qual filtro está ativo (o JS troca true/false). -->
+        <div class="filtros" role="group" aria-label="Filtrar projetos por tecnologia">
+          <button type="button" class="btn-filtro ativo" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="btn-filtro" data-filtro="HTML" aria-pressed="false">HTML</button>
+          <button type="button" class="btn-filtro" data-filtro="CSS" aria-pressed="false">CSS</button>
+          <button type="button" class="btn-filtro" data-filtro="JavaScript" aria-pressed="false">JavaScript</button>
+          <button type="button" class="btn-filtro" data-filtro="Python" aria-pressed="false">Python</button>
+          <button type="button" class="btn-filtro" data-filtro="C" aria-pressed="false">C</button>
+          <button type="button" class="btn-filtro" data-filtro="SQL" aria-pressed="false">SQL</button>
+          <button type="button" class="btn-filtro" data-filtro="MySQL" aria-pressed="false">MySQL</button>
+          <button type="button" class="btn-filtro" data-filtro="Bootstrap" aria-pressed="false">Bootstrap</button>
+        </div>
+
+        <!-- O JS escreve aqui "Mostrando 3 projetos"; aria-live faz o leitor de tela anunciar a mudança. -->
+        <p class="filtros-resumo" id="resumo-filtro" aria-live="polite"></p>
+
+        <!-- Começa vazia: o JS cria um card para cada objeto de js/projetos.js. -->
+        <div class="row g-4" id="lista-projetos"></div>
+      </div>
+    </section>
+
+    <!-- ---------- FORMAÇÃO E CERTIFICADOS ---------- -->
+    <section id="formacao">
+      <div class="container">
+        <h2>Formação e certificados</h2>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h3>Formação acadêmica</h3>
+            <ul class="lista-formacao">
+              <li>
+                <h4>Bacharelado em Ciência da Computação</h4>
+                <p>Centro Universitário do Distrito Federal (UDF), Brasília, DF</p>
+                <p>Cursando, 2º semestre</p>
+              </li>
+              <li>
+                <h4>Ensino Médio Regular</h4>
+                <p>Colégio Estadual Tempo Integral Flaviano Dantas Nascimento, Banzaê, Bahia</p>
+                <p><time datetime="2023-03">03/2023</time> a <time datetime="2025-12">12/2025</time>, concluído</p>
+              </li>
+            </ul>
+
+            <h3>Cursos complementares</h3>
+            <ul class="lista-formacao">
+              <li>
+                <h4>Informática Básica e Avançada (30 h)</h4>
+                <p>Windows, Internet e Pacote Office</p>
+                <p>Treinamento Digidata, Banzaê, Bahia</p>
+                <p><time datetime="2023-08">08/2023</time>, concluído</p>
+              </li>
+              <li>
+                <h4>Design Gráfico (30 h)</h4>
+                <p>Photoshop, CorelDraw e InDesign</p>
+                <p>Treinamento Digidata, Banzaê, Bahia</p>
+                <p><time datetime="2023-08">08/2023</time>, concluído</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Certificados</h3>
+            <ul class="lista-certificados">
+              <li>
+                <h4>Brasília MUG: Let’s CRUD with MongoDB</h4>
+                <p>MongoDB, <time datetime="2026-09-26">26/09/2026</time></p>
+                <a href="docs/certificado-mongodb-brasilia-mug.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+              </li>
+              <li>
+                <h4>CRUD Operations in MongoDB</h4>
+                <p>MongoDB, <time datetime="2026-09-26">26/09/2026</time></p>
+                <a href="docs/certificado-mongodb-crud-operations.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+                <a href="https://www.credly.com/badges/4a0df22b-ad01-4c50-a79a-6b9bf688bc6a" target="_blank" rel="noopener">Validar no Credly</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- CONTATO ---------- -->
+    <section id="contato">
+      <div class="container">
+        <h2>Contato</h2>
+        <p>Estou buscando estágio em desenvolvimento de software. Para falar sobre uma vaga ou sobre algum projeto, use um destes canais. No Instagram você acompanha meu conteúdo.</p>
+
+        <ul class="lista-contatos">
+          <li><a href="https://github.com/pietrobitencourt" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/piiettrosz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:pietronbitencourt@gmail.com">E-mail</a></li>
+          <li><a href="https://instagram.com/piiettrosz" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Piêtro Bitencourt Nunes</p>
+      <p>Projeto final de Desenvolvimento Front-End para Web, UDF</p>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL DE DETALHES DO PROJETO ============ -->
+  <div class="modal fade" id="modal-projeto" tabindex="-1" aria-labelledby="modal-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="modal-titulo"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-descricao"></p>
+          <ul id="modal-subprojetos"></ul>
+        </div>
+        <div class="modal-footer">
+          <a id="modal-repo" href="#" target="_blank" rel="noopener">Abrir repositório completo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous"></script>
+
+  <script src="js/projetos.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
