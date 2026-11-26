@@ -1,0 +1,15 @@
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Para quando usar Node/npm e segredos
+node_modules/
+.env
