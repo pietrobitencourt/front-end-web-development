@@ -1,0 +1,855 @@
+/* ============================================================
+   css/style.css — PORTFÓLIO — Piêtro Bitencourt Nunes
+   ============================================================
+
+   ÍNDICE
+    1. Variáveis (tokens)
+    2. Base e Bootstrap
+    3. Acessibilidade e foco
+    4. Utilitários de seção
+    5. Menu (navbar)
+    6. Início
+    7. Sobre mim
+    8. Habilidades e chips
+    9. Projetos: filtros e cards
+   10. Modal
+   11. Formação e certificados
+   12. Contato e rodapé
+   13. Responsivo
+   ============================================================ */
+
+
+/* ============================================================
+                    1. VARIÁVEIS (tokens)
+   ============================================================ */
+:root {
+  /* Cores */
+  --cor-fundo: #0F1B33;          /* azul-marinho do site */
+  --cor-superficie: #17264A;     /* blocos um pouco mais claros que o fundo */
+  --cor-texto: #EDEFF5;          /* branco levemente azulado */
+  --cor-texto-suave: #A9B4CC;    /* textos secundários */
+  --cor-destaque: #D4A94F;       /* dourado */
+  --cor-destaque-hover: #E3BE6F; /* dourado um pouco mais claro (hover) */
+  --cor-borda: rgba(237, 239, 245, 0.14);
+
+  /* Tipografia */
+  --fonte-titulo: "Newsreader", Georgia, serif;
+  --fonte-texto: "Public Sans", system-ui, sans-serif;
+
+  /* Espaçamento: múltiplos de 8px */
+  --espaco-1: 0.5rem;   /*  8px */
+  --espaco-2: 1rem;     /* 16px */
+  --espaco-3: 1.5rem;   /* 24px */
+  --espaco-4: 2rem;     /* 32px */
+  --espaco-6: 3rem;     /* 48px */
+  --espaco-8: 4rem;     /* 64px */
+
+  /* Outros */
+  --raio: 0.5rem;
+  --altura-navbar: 4.5rem;
+  --transicao: 0.25s ease;
+}
+
+
+/* ============================================================
+                    2. BASE E BOOTSTRAP
+   ============================================================ */
+:root {
+  --bs-body-bg: var(--cor-fundo);
+  --bs-body-color: var(--cor-texto);
+  --bs-body-font-family: var(--fonte-texto);
+  /* No Bootstrap 5.3 a cor dos links usa a versão RGB (números separados por vírgula). */
+  --bs-link-color-rgb: 212, 169, 79;
+  --bs-link-hover-color-rgb: 227, 190, 111;
+  --bs-border-color: var(--cor-borda);
+  --bs-border-radius: var(--raio);
+
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--altura-navbar); /* compensa a navbar fixa nos links #seção */
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo);
+}
+
+
+h1, .h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2, .h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* h3 "de título" (nome de projeto, título do modal). Os h3 que funcionam como
+   rótulo de grupo (Sobre, Habilidades, Formação) ganham outro estilo mais abaixo. */
+h3, .h3 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.3;
+}
+
+h4, .h4 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+a {
+  color: var(--cor-destaque);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color var(--transicao), text-decoration-color var(--transicao);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--cor-destaque-hover);
+  text-decoration-thickness: 2px;
+}
+
+.nav-link,
+.navbar-brand,
+.btn {
+  text-decoration: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ============================================================
+                 3. ACESSIBILIDADE E FOCO
+   ============================================================ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Link "Pular para o conteúdo": sem isto ele aparece atrás da navbar fixa. */
+.visually-hidden-focusable:focus {
+  position: fixed;
+  top: var(--espaco-1);
+  left: var(--espaco-1);
+  z-index: 2000;
+  padding: var(--espaco-1) var(--espaco-2);
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-destaque);
+  border-radius: var(--raio);
+}
+
+
+/* ============================================================
+                     4. UTILITÁRIOS DE SEÇÃO
+   ============================================================ */
+section {
+  padding-block: clamp(var(--espaco-6), 8vw, calc(var(--espaco-8) * 1.25));
+  position: relative;
+}
+
+section h2 {
+  margin-bottom: var(--espaco-4); /* 32px */
+}
+
+#habilidades,
+#formacao {
+  background-color: var(--cor-superficie);
+  border-block: 1px solid var(--cor-borda);
+}
+
+/* Rótulo de grupo: usado nos h3 de Sobre, Habilidades e Formação. */
+#sobre h3,
+#habilidades h3,
+#formacao h3 {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-2);
+}
+
+#sobre h3 {
+  margin-top: var(--espaco-4);
+}
+
+.lista-formacao + h3 {
+  margin-top: var(--espaco-4);
+}
+
+
+/* ============================================================
+                        5. MENU (navbar)
+   ============================================================ */
+.navbar {
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  min-height: var(--altura-navbar);
+  padding-block: var(--espaco-1);
+}
+
+.navbar-brand {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+  letter-spacing: -0.01em;
+  transition: color var(--transicao);
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus-visible {
+  color: var(--cor-destaque);
+}
+
+.navbar .nav-link {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding-inline: 0;
+  margin-inline: var(--espaco-2);
+  transition: color var(--transicao);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar .nav-link.active {
+  color: var(--cor-texto);
+}
+
+/* Barrinha do hover: o link vira referência (position: relative) e o ::after
+   é a linha, escondida com scaleX(0) e revelada no hover. */
+.navbar .nav-link,
+.inicio-links a,
+.lista-contatos a {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar .nav-link::after,
+.inicio-links a::after,
+.lista-contatos a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.25rem;
+  width: 100%;
+  height: 1px;
+  background-color: var(--cor-destaque);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus-visible::after,
+.navbar .nav-link.active::after,
+.inicio-links a:hover::after,
+.inicio-links a:focus-visible::after,
+.lista-contatos a:hover::after,
+.lista-contatos a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 0.45rem 0.65rem;
+  transition: border-color var(--transicao);
+}
+
+.navbar-toggler:hover {
+  border-color: var(--cor-destaque);
+}
+
+.navbar-toggler:focus-visible {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+
+/* ============================================================
+                            6. INÍCIO
+   ============================================================ */
+#inicio {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: calc(var(--altura-navbar) + var(--espaco-4));
+  padding-bottom: var(--espaco-6);
+  display: flex;
+  align-items: center;
+}
+
+#inicio h1 {
+  font-size: clamp(2.75rem, 7.5vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--espaco-3);
+}
+
+.inicio-texto {
+  color: var(--cor-texto-suave);
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+  max-width: 42rem;
+  margin-bottom: var(--espaco-4);
+}
+
+.inicio-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-4);
+}
+
+.inicio-links a {
+  color: var(--cor-texto-suave);
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 0.35rem;
+  transition: color var(--transicao);
+}
+
+.inicio-links a:hover,
+.inicio-links a:focus-visible {
+  color: var(--cor-texto);
+}
+
+.inicio-links a:first-child {
+  color: var(--cor-destaque);
+  font-weight: 600;
+}
+
+.inicio-links a:first-child:hover,
+.inicio-links a:first-child:focus-visible {
+  color: var(--cor-destaque-hover);
+}
+
+
+/* ============================================================
+                        7. SOBRE MIM
+   ============================================================ */
+#sobre img {
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--raio);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-superficie);
+}
+
+#sobre p {
+  max-width: 65ch;
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-3);
+}
+
+
+/* ============================================================
+                    8. HABILIDADES E CHIPS
+   ============================================================ */
+/* Chips não são clicáveis: sem borda (para não parecerem os botões de filtro)
+   e sem efeito de hover. */
+.lista-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+}
+
+.lista-chips li {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--cor-texto);
+  background-color: rgba(237, 239, 245, 0.07);
+  border-radius: var(--raio);
+  padding: 0.35rem 0.75rem;
+}
+
+.projeto-tags li {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.6rem;
+  color: var(--cor-texto-suave);
+}
+
+
+/* ============================================================
+                 9. PROJETOS: FILTROS E CARDS
+   ============================================================ */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+  margin-bottom: var(--espaco-2);
+}
+
+.btn-filtro {
+  font-family: var(--fonte-texto);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  background-color: transparent;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: color var(--transicao), border-color var(--transicao), background-color var(--transicao);
+}
+
+.btn-filtro:hover {
+  color: var(--cor-texto);
+  border-color: rgba(237, 239, 245, 0.35);
+}
+
+.btn-filtro.ativo {
+  color: var(--cor-destaque);
+  font-weight: 600;
+  background-color: rgba(212, 169, 79, 0.1);
+  border-color: var(--cor-destaque);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.filtros-resumo {
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-4);
+}
+
+.projeto-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+
+.projeto-card:hover {
+  border-color: var(--cor-destaque);
+}
+
+.projeto-capa {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.projeto-corpo {
+  padding: var(--espaco-3);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projeto-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-1);
+}
+
+.projeto-descricao {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: var(--espaco-3);
+}
+
+.projeto-tags {
+  margin-bottom: var(--espaco-3);
+}
+
+.projeto-acoes {
+  margin-top: auto;
+  padding-top: var(--espaco-2);
+  border-top: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+}
+
+.projeto-botao {
+  font-family: var(--fonte-texto);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cor-destaque);
+  background-color: transparent;
+  border: 1px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.projeto-botao:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo);
+}
+
+.projeto-acoes a {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+  padding-bottom: 0.25rem;
+  transition: color var(--transicao);
+}
+
+.projeto-acoes a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--cor-destaque);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+
+.projeto-acoes a:hover,
+.projeto-acoes a:focus-visible {
+  color: var(--cor-texto);
+}
+
+.projeto-acoes a:hover::after,
+.projeto-acoes a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+
+/* ============================================================
+                 10. MODAL (lista de subprojetos)
+   ============================================================ */
+.modal {
+  --bs-modal-bg: var(--cor-superficie);
+  --bs-modal-color: var(--cor-texto);
+  --bs-modal-border-color: var(--cor-borda);
+  --bs-modal-border-radius: var(--raio);
+  --bs-modal-header-border-color: var(--cor-borda);
+  --bs-modal-footer-border-color: var(--cor-borda);
+  --bs-modal-padding: var(--espaco-3);
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+  opacity: 0.75;
+  transition: opacity var(--transicao);
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+#modal-subprojetos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+#modal-subprojetos li {
+  padding-bottom: var(--espaco-2);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+#modal-subprojetos li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#modal-subprojetos a {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 169, 79, 0.5);
+  text-underline-offset: 0.25em;
+  margin-bottom: 0.25rem;
+  transition: color var(--transicao), text-decoration-color var(--transicao);
+}
+
+#modal-subprojetos a:hover,
+#modal-subprojetos a:focus-visible {
+  color: var(--cor-destaque);
+  text-decoration-color: var(--cor-destaque);
+}
+
+#modal-subprojetos p,
+#modal-subprojetos span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 0;
+}
+
+/* Link "Ver demonstração" dentro do <p> do subprojeto: menor, na fonte do texto. */
+#modal-subprojetos li p a {
+  font-family: var(--fonte-texto);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-destaque);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+#modal-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cor-destaque);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  transition: color var(--transicao);
+}
+
+#modal-repo:hover,
+#modal-repo:focus-visible {
+  color: var(--cor-destaque-hover);
+}
+
+
+/* ============================================================
+                   11. FORMAÇÃO E CERTIFICADOS
+   ============================================================ */
+.lista-formacao,
+.lista-certificados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.lista-formacao li,
+.lista-certificados li {
+  position: relative;
+  padding-left: var(--espaco-3);
+  border-left: 2px solid var(--cor-borda);
+  transition: border-color var(--transicao);
+}
+
+.lista-formacao li:hover,
+.lista-certificados li:hover {
+  border-left-color: var(--cor-destaque);
+}
+
+.lista-formacao h4,
+.lista-certificados h4 {
+  font-family: var(--fonte-texto);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--cor-texto);
+  margin-bottom: 0.25rem;
+}
+
+.lista-formacao p,
+.lista-certificados p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--cor-texto-suave);
+}
+
+.lista-formacao p + p {
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.lista-certificados a {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--espaco-1);
+  margin-right: var(--espaco-3);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--cor-destaque);
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  transition: color var(--transicao);
+}
+
+.lista-certificados a:last-child {
+  margin-right: 0;
+}
+
+.lista-certificados a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--cor-destaque);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+
+.lista-certificados a:hover,
+.lista-certificados a:focus-visible {
+  color: var(--cor-destaque-hover);
+}
+
+.lista-certificados a:hover::after,
+.lista-certificados a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+
+/* ============================================================
+                    12. CONTATO E RODAPÉ
+   ============================================================ */
+.lista-contatos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2) var(--espaco-4);
+}
+
+.lista-contatos a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+  text-decoration: none;
+  padding-block: 0.5rem;
+  transition: color var(--transicao);
+}
+
+.lista-contatos a:hover,
+.lista-contatos a:focus-visible {
+  color: var(--cor-destaque);
+}
+
+footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-block: var(--espaco-4);
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* ============================================================
+                13. RESPONSIVO (mobile primeiro)
+   ============================================================ */
+@media (min-width: 768px) {
+  #inicio {
+    padding-top: calc(var(--altura-navbar) + var(--espaco-6));
+    padding-bottom: var(--espaco-8);
+  }
+
+  .inicio-links {
+    gap: var(--espaco-4) var(--espaco-6);
+  }
+}
+
+@media (min-width: 992px) {
+  #inicio h1 {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Menu "hambúrguer" aberto (celular e tablet). */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--cor-fundo);
+    margin-top: var(--espaco-1);
+    padding-block: var(--espaco-2);
+    border-top: 1px solid var(--cor-borda);
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+  }
+
+  .navbar .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    margin-inline: 0;
+    padding-block: 0.5rem;
+    font-size: 1.05rem;
+    color: var(--cor-texto);
+  }
+}
