@@ -16,6 +16,7 @@
    11. Formação e certificados
    12. Contato e rodapé
    13. Responsivo
+   14. Camada visual (textura de fundo e entrada do início)
    ============================================================ */
 
 
@@ -267,15 +268,13 @@ section h2 {
 /* Barrinha do hover: o link vira referência (position: relative) e o ::after
    é a linha, escondida com scaleX(0) e revelada no hover. */
 .navbar .nav-link,
-.inicio-links a,
-.lista-contatos a {
+.inicio-links a {
   position: relative;
   text-decoration: none;
 }
 
 .navbar .nav-link::after,
-.inicio-links a::after,
-.lista-contatos a::after {
+.inicio-links a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -292,9 +291,7 @@ section h2 {
 .navbar .nav-link:focus-visible::after,
 .navbar .nav-link.active::after,
 .inicio-links a:hover::after,
-.inicio-links a:focus-visible::after,
-.lista-contatos a:hover::after,
-.lista-contatos a:focus-visible::after {
+.inicio-links a:focus-visible::after {
   transform: scaleX(1);
 }
 
@@ -309,10 +306,13 @@ section h2 {
   border-color: var(--cor-destaque);
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;          /* tira o anel cinza do Bootstrap */
+}
+
 .navbar-toggler:focus-visible {
   outline: 2px solid var(--cor-destaque);
   outline-offset: 3px;
-  box-shadow: none;
 }
 
 
@@ -320,6 +320,8 @@ section h2 {
                             6. INÍCIO
    ============================================================ */
 #inicio {
+  position: relative;
+  overflow: hidden;          /* a marca de fundo não pode criar rolagem lateral */
   min-height: 100vh;
   min-height: 100svh;
   padding-top: calc(var(--altura-navbar) + var(--espaco-4));
@@ -328,11 +330,46 @@ section h2 {
   align-items: center;
 }
 
+/* A letra "P" do favicon, enorme e quase transparente, atrás do texto. */
+.inicio-marca {
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  width: min(75vw, 44rem);
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+}
+
+#inicio .container {
+  position: relative;
+  z-index: 1;               /* texto acima da marca */
+}
+
 #inicio h1 {
-  font-size: clamp(2.75rem, 7.5vw, 5.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  margin-bottom: var(--espaco-3);
+  font-size: clamp(4rem, 12vw, 8.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--espaco-4);
+}
+
+#inicio h1 .nome,
+#inicio h1 .sobrenome {
+  display: block;
+}
+
+#inicio h1 .nome {
+  font-weight: 600;
+}
+
+#inicio h1 .sobrenome {
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--cor-texto-suave);
+  margin-top: 0.2em;
 }
 
 .inicio-texto {
@@ -394,6 +431,40 @@ section h2 {
   margin-bottom: var(--espaco-3);
 }
 
+/* Retrato: foto em tons de azul (preto e branco + camada da cor do site) e
+   uma moldura dourada fina deslocada para baixo e para a direita. */
+.retrato {
+  position: relative;
+  max-width: 20rem;
+  margin: 0 0 var(--espaco-2);
+}
+
+.retrato::before {
+  content: "";
+  position: absolute;
+  inset: var(--espaco-2) calc(var(--espaco-2) * -1) calc(var(--espaco-2) * -1) var(--espaco-2);
+  border: 1px solid var(--cor-destaque);
+  border-radius: var(--raio);
+}
+
+.retrato img {
+  position: relative;
+  z-index: 1;
+  filter: grayscale(1) contrast(1.05) brightness(1.08);
+}
+
+.retrato::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--raio);
+  background-color: var(--cor-superficie);
+  mix-blend-mode: color;     /* mantém a luz da foto e troca a cor pelo azul do site */
+  opacity: 0.9;
+  pointer-events: none;
+}
+
 
 /* ============================================================
                     8. HABILIDADES E CHIPS
@@ -423,6 +494,31 @@ section h2 {
   font-size: 0.78rem;
   padding: 0.25rem 0.6rem;
   color: var(--cor-texto-suave);
+}
+
+/* Habilidades em linhas: rótulo à esquerda, tecnologias à direita, linhas finas
+   separando (no celular, o rótulo fica em cima). */
+.habilidades-lista {
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.habilidade {
+  display: grid;
+  gap: var(--espaco-1);
+  padding-block: var(--espaco-3);
+  border-top: 1px solid var(--cor-borda);
+}
+
+#habilidades .habilidade h3 {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .habilidade {
+    grid-template-columns: minmax(10rem, 15rem) 1fr;
+    gap: var(--espaco-4);
+    align-items: baseline;
+  }
 }
 
 
@@ -770,30 +866,58 @@ section h2 {
 /* ============================================================
                     12. CONTATO E RODAPÉ
    ============================================================ */
+.contato-texto {
+  max-width: 52ch;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-4);
+}
+
+/* Contatos: cada linha inteira é um link grande (nome do canal + endereço). */
 .lista-contatos {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espaco-2) var(--espaco-4);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.lista-contatos li {
+  border-top: 1px solid var(--cor-borda);
+  transition: border-color var(--transicao);
+}
+
+.lista-contatos li:hover,
+.lista-contatos li:focus-within {
+  border-top-color: var(--cor-destaque);
 }
 
 .lista-contatos a {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  font-size: 1.05rem;
-  font-weight: 500;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem var(--espaco-3);
+  padding-block: var(--espaco-3);
   color: var(--cor-texto);
   text-decoration: none;
-  padding-block: 0.5rem;
   transition: color var(--transicao);
 }
 
-.lista-contatos a:hover,
-.lista-contatos a:focus-visible {
+.contato-nome {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: color var(--transicao);
+}
+
+.contato-endereco {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  overflow-wrap: anywhere;
+}
+
+.lista-contatos a:hover .contato-nome,
+.lista-contatos a:focus-visible .contato-nome {
   color: var(--cor-destaque);
 }
 
@@ -823,10 +947,11 @@ footer p {
   }
 }
 
-@media (min-width: 992px) {
-  #inicio h1 {
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    letter-spacing: -0.03em;
+/* Celular: a marca do início sobe e fica mais discreta, para não competir com o texto. */
+@media (max-width: 767.98px) {
+  .inicio-marca {
+    top: 30%;
+    right: -30%;
   }
 }
 
@@ -851,5 +976,49 @@ footer p {
     padding-block: 0.5rem;
     font-size: 1.05rem;
     color: var(--cor-texto);
+  }
+}
+
+
+/* ============================================================
+        14. CAMADA VISUAL (textura de fundo e entrada do início)
+   Para desligar qualquer efeito, apague o bloco correspondente.
+   ============================================================ */
+
+/* Grão fino sobre a página inteira: quebra a "cor chapada" do fundo.
+   É uma imagem SVG gerada pelo navegador, com 4,5% de opacidade. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Entrada do início: cada bloco sobe 14px e aparece, em sequência.
+   Só roda para quem não pediu menos movimento no sistema. */
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; }
+  to   { opacity: 0.1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #inicio .container > * {
+    animation: entrar 0.8s ease both;
+  }
+
+  #inicio .container > h1 { animation-delay: 0.05s; }
+  #inicio .container > .inicio-texto { animation-delay: 0.2s; }
+  #inicio .container > .inicio-links { animation-delay: 0.35s; }
+
+  .inicio-marca {
+    animation: aparecer 1.6s ease both;
   }
 }
