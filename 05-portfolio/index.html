@@ -65,8 +65,13 @@
 
     <!-- ---------- INÍCIO ---------- -->
     <section id="inicio">
+      <!-- Letra "P" do favicon, enorme e quase transparente, como marca de fundo.
+           É decorativa: alt vazio e aria-hidden para leitores de tela ignorarem. -->
+      <img class="inicio-marca" src="img/favicon.svg" alt="" aria-hidden="true" width="512" height="512">
+
       <div class="container">
-        <h1>Piêtro Bitencourt Nunes</h1>
+        <!-- O nome em dois blocos: o primeiro nome é o protagonista. -->
+        <h1><span class="nome">Piêtro</span> <span class="sobrenome">Bitencourt Nunes</span></h1>
         <p class="inicio-texto">Estudante de Ciência da Computação na UDF, em Brasília. Estudo desenvolvimento full stack e busco estágio em desenvolvimento de software.</p>
 
         <div class="inicio-links">
@@ -83,9 +88,12 @@
       <div class="container">
         <h2>Sobre mim</h2>
 
-        <div class="row align-items-center g-4">
+        <div class="row align-items-center g-4 g-lg-5">
           <div class="col-md-4">
-            <img src="img/perfil.jpg" alt="Foto de Piêtro Bitencourt Nunes" class="img-fluid" width="420" height="420">
+            <!-- figure: o CSS usa a moldura dourada deslocada e o tom azul da foto. -->
+            <figure class="retrato">
+              <img src="img/perfil.jpg" alt="Foto de Piêtro Bitencourt Nunes" class="img-fluid" width="420" height="420">
+            </figure>
           </div>
           <div class="col-md-8">
             <p>Estudo Ciência da Computação na UDF, em Brasília. Comecei com Python e C e hoje também faço sites com HTML, CSS, JavaScript e Bootstrap e modelo bancos de dados em MySQL.</p>
@@ -111,64 +119,65 @@
       <div class="container">
         <h2>Habilidades</h2>
 
-        <!-- Um único row com todos os blocos: no desktop ficam dois por linha. -->
-        <div class="row g-4">
-          <div class="col-md-6">
+        <!-- Uma linha por categoria: rótulo à esquerda, tecnologias à direita
+             (no celular, uma embaixo da outra). -->
+        <div class="habilidades-lista">
+          <div class="habilidade">
             <h3>Linguagens</h3>
             <ul class="lista-chips">
-              <li>Python</li>
-              <li>C</li>
-              <li>JavaScript</li>
-              <li>SQL</li>
+              <li><img class="icone" src="img/icons/python.svg" alt="" width="16" height="16">Python</li>
+              <li><img class="icone" src="img/icons/c.svg" alt="" width="16" height="16">C</li>
+              <li><img class="icone" src="img/icons/javascript.svg" alt="" width="16" height="16">JavaScript</li>
+              <li><img class="icone" src="img/icons/sql.svg" alt="" width="16" height="16">SQL</li>
             </ul>
           </div>
 
-          <div class="col-md-6">
+          <div class="habilidade">
             <h3>Front-end</h3>
             <ul class="lista-chips">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>Bootstrap</li>
-              <li>Figma</li>
+              <li><img class="icone" src="img/icons/html5.svg" alt="" width="16" height="16">HTML</li>
+              <li><img class="icone" src="img/icons/css.svg" alt="" width="16" height="16">CSS</li>
+              <li><img class="icone" src="img/icons/bootstrap.svg" alt="" width="16" height="16">Bootstrap</li>
+              <li><img class="icone" src="img/icons/figma.svg" alt="" width="16" height="16">Figma</li>
             </ul>
           </div>
 
-          <div class="col-md-6">
+          <div class="habilidade">
             <h3>Bancos de dados</h3>
             <ul class="lista-chips">
-              <li>MySQL</li>
-              <li>PostgreSQL</li>
+              <li><img class="icone" src="img/icons/mysql.svg" alt="" width="16" height="16">MySQL</li>
+              <li><img class="icone" src="img/icons/postgresql.svg" alt="" width="16" height="16">PostgreSQL</li>
               <li>Modelagem de dados (MER e DER)</li>
             </ul>
           </div>
 
-          <div class="col-md-6">
+          <div class="habilidade">
             <h3>Ferramentas e práticas</h3>
             <ul class="lista-chips">
-              <li>Git</li>
-              <li>GitHub</li>
-              <li>GitHub Actions (CI/CD)</li>
+              <li><img class="icone" src="img/icons/git.svg" alt="" width="16" height="16">Git</li>
+              <li><img class="icone" src="img/icons/github.svg" alt="" width="16" height="16">GitHub</li>
+              <li><img class="icone" src="img/icons/githubactions.svg" alt="" width="16" height="16">GitHub Actions (CI/CD)</li>
               <li>Integração com APIs</li>
             </ul>
           </div>
 
-          <div class="col-md-6">
+          <div class="habilidade">
             <h3>Em aprendizado</h3>
             <ul class="lista-chips">
-              <li>Java</li>
-              <li>Node.js</li>
-              <li>React</li>
-              <li>Angular</li>
-              <li>TailwindCSS</li>
-              <li>MongoDB</li>
-              <li>Linux</li>
+              <li><img class="icone" src="img/icons/openjdk.svg" alt="" width="16" height="16">Java</li>
+              <li><img class="icone" src="img/icons/nodedotjs.svg" alt="" width="16" height="16">Node.js</li>
+              <li><img class="icone" src="img/icons/react.svg" alt="" width="16" height="16">React</li>
+              <li><img class="icone" src="img/icons/angular.svg" alt="" width="16" height="16">Angular</li>
+              <li><img class="icone" src="img/icons/tailwindcss.svg" alt="" width="16" height="16">TailwindCSS</li>
+              <li><img class="icone" src="img/icons/mongodb.svg" alt="" width="16" height="16">MongoDB</li>
+              <li><img class="icone" src="img/icons/linux.svg" alt="" width="16" height="16">Linux</li>
             </ul>
           </div>
 
-          <div class="col-md-6">
+          <div class="habilidade">
             <h3>Próximos passos</h3>
             <ul class="lista-chips">
-              <li>C++</li>
+              <li><img class="icone" src="img/icons/cplusplus.svg" alt="" width="16" height="16">C++</li>
               <li>C#</li>
               <li>Infraestrutura</li>
               <li>Segurança da informação</li>
@@ -202,6 +211,12 @@
 
         <!-- Começa vazia: o JS cria um card para cada objeto de js/projetos.js. -->
         <div class="row g-4" id="lista-projetos"></div>
+
+        <!-- Quem navega sem JavaScript vê isto em vez de uma lista vazia. -->
+        <noscript>
+          <p>Os projetos são exibidos com JavaScript. Veja todos no
+            <a href="https://github.com/pietrobitencourt?tab=repositories" target="_blank" rel="noopener">meu GitHub</a>.</p>
+        </noscript>
       </div>
     </section>
 
@@ -267,13 +282,34 @@
     <section id="contato">
       <div class="container">
         <h2>Contato</h2>
-        <p>Estou buscando estágio em desenvolvimento de software. Para falar sobre uma vaga ou sobre algum projeto, use um destes canais. No Instagram você acompanha meu conteúdo.</p>
+        <p class="contato-texto">Estou buscando estágio em desenvolvimento de software. Para falar sobre uma vaga ou sobre algum projeto, use um destes canais. No Instagram você acompanha meu conteúdo.</p>
 
+        <!-- Cada linha inteira é um link: nome do canal + endereço. -->
         <ul class="lista-contatos">
-          <li><a href="https://github.com/pietrobitencourt" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/piiettrosz/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mailto:pietronbitencourt@gmail.com">E-mail</a></li>
-          <li><a href="https://instagram.com/piiettrosz" target="_blank" rel="noopener">Instagram</a></li>
+          <li>
+            <a href="https://github.com/pietrobitencourt" target="_blank" rel="noopener">
+              <span class="contato-nome">GitHub</span>
+              <span class="contato-endereco">github.com/pietrobitencourt</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/piiettrosz/" target="_blank" rel="noopener">
+              <span class="contato-nome">LinkedIn</span>
+              <span class="contato-endereco">linkedin.com/in/piiettrosz</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:pietronbitencourt@gmail.com">
+              <span class="contato-nome">E-mail</span>
+              <span class="contato-endereco">pietronbitencourt@gmail.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/piiettrosz" target="_blank" rel="noopener">
+              <span class="contato-nome">Instagram</span>
+              <span class="contato-endereco">@piiettrosz</span>
+            </a>
+          </li>
         </ul>
       </div>
     </section>
